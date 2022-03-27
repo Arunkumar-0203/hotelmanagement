@@ -1,0 +1,94 @@
+{% extends 'admin/admin_base.html' %}
+{% load static %}
+{% block content %}
+    {% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+<!-- banner -->
+<div class="banner">    	   
+    <img src="{% static 'assets/images/photos/banner.jpg' %}"  class="img-responsive" alt="slide">
+    <div class="welcome-message">
+        <div class="wrap-info">
+            <div class="information">
+               <div class="col-sm-5 col-md-4">
+<h3>Reservation</h3>
+    <form  method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <input type="text" name="first_name" class="form-control"  placeholder="First Name">
+        </div>
+
+        <div class="form-group">
+            <input type="email" name="email" class="form-control"  placeholder="Enter Email">
+        </div>
+        <div class="form-group">
+            <input type="number" name="phone" class="form-control"  placeholder="Phone">
+        </div>
+        <div class="form-group">
+            <input type="text" name="address" class="form-control"  placeholder="Enter Address">
+        </div>
+        <div class="form-group">
+            <input type="DATE" name="Dob" class="form-control"  placeholder="Date of birth">
+        </div>
+        <div class="form-group">
+            <input type="text" name="username" class="form-control"  placeholder="User Name">
+        </div>
+        <div class="form-group">
+            <input type="text" name="password" class="form-control"  placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label>ADD MANAGERS ID PROOF</label>
+            <input type="FILE" name="proof" class="form-control"  placeholder="Add your id proof">
+        </div>
+        <div class="form-group">
+            <input type="text" name="place" class="form-control"  placeholder="Enter  place">
+        </div>
+         <div class="form-group">
+            <input type="text" name="District" class="form-control"  placeholder="Enter  district">
+        </div>
+        <div class="form-group">
+{#            <label>Select Hotel</label>#}
+            <div class="row">
+            <div class="col-xs-6">
+                   <select class="form-control" name="hotel">
+                <option>Hotels</option>
+                       {% for i in h %}
+                <option value="{{ i.id }}">{{ i.Name }}</option>
+                       {% endfor %}
+
+              </select>
+            </div>
+
+
+        </div>
+
+        <div class="form-group">
+{#            <textarea class="form-control"  placeholder="Message" rows="4"></textarea>#}
+        </div>
+            <button class="btn btn-default" type="submit">Submit</button>
+     </form>
+</div>
+</div>
+            </div>
+{#            <a href="#information" class="arrow-nav scroll wowload fadeInDownBig"><i class="fa fa-angle-down"></i></a>#}
+        </div>
+    </div>
+</div>
+<!-- banner-->
+
+
+<!-- reservation-information -->
+
+<!-- reservation-information -->
+
+
+
+<!-- services -->
+
+<!-- services -->
+
+{%  endblock %}

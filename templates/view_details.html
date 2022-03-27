@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    {% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+
+
+<!-- banner -->
+<div class="banner">
+    <img src="{% static 'assets/images/photos/banner.jpg' %}"  class="img-responsive" alt="slide">
+    <div class="welcome-message">
+        <div class="wrap-info">
+            <div class="information">
+{#                <h1  class="animated fadeInDown">Best hotel in Dubai user</h1>#}
+{#                <p class="animated fadeInUp">Most luxurious hotel of asia with the royal treatments and excellent customer service.</p>#}
+            </div>
+{#            <a href="#information" class="arrow-nav scroll wowload fadeInDownBig"><i class="fa fa-angle-down"></i></a>#}
+        </div>
+    </div>
+</div>
+<!-- banner-->
+
+
+<!-- reservation-information -->
+{##}
+<!-- reservation-information -->
+
+
+
+<!-- services -->
+
+<div class="spacer services wowload fadeInUp">
+<div class="container">
+    <div class="row">
+        {% for k in D %}
+
+        <div class="col-sm-4" >
+            <!-- RoomCarousel -->
+
+            <div id="RoomCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                <div class="item active"><img  style="width: 400px;height: 200px;" src="{{ k.roomtype.images.url }}" class="img-responsive" alt="slide"></div>
+
+                </div>
+                <!-- Controls -->
+{#                <a class="left carousel-control" href="#RoomCarousel" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>#}
+{#                <a class="right carousel-control" href="#RoomCarousel" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>#}
+            </div>
+            <!-- RoomCarousel-->
+
+            <div class="caption">NAME:-{{ k.roomtype.roomtype }}
+            </div>
+            <div class="caption">Price Rs:-{{ k.Price }}
+            </div>
+            <div class="caption">Room details:-{{ k.roomtype.Details }}
+            </div>
+              <div class="caption">Available:3 month
+            </div>
+{#            <div class="caption"><a href="hoteldetails?id={{ i.id }}" class="pull-right">VIEW DETAILS</a>#}
+{#            </div>#}
+{#           <div><a href="rooms-tariff.php" class=" btn btn-danger" >REMOVE</a>#}
+{#            </div>#}
+
+
+        </div>
+         {% endfor %}
+
+    </div>
+
+</div>
+</div>
+<!-- services -->
+
+{%  endblock %}

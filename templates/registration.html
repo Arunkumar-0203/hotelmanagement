@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    {% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+<!-- banner -->
+<div class="banner">    	   
+    <img src="{% static 'assets/images/photos/banner.jpg' %}"  class="img-responsive" alt="slide">
+    <div class="welcome-message">
+        <div class="wrap-info">
+            <div class="information">
+               <div class="col-sm-5 col-md-4">
+<h3>Reservation</h3>
+    <form  method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <input type="text" name="first_name" class="form-control"  placeholder="First Name">
+        </div>
+
+        <div class="form-group">
+            <input type="email" name="email" class="form-control"  placeholder="Enter Email">
+        </div>
+        <div class="form-group">
+            <input type="number" name="phone" class="form-control"  placeholder="Phone">
+        </div>
+        <div class="form-group">
+            <input type="text" name="address" class="form-control"  placeholder="Enter Address">
+        </div>
+        <div class="form-group">
+            <input type="DATE" name="Dob" class="form-control"  placeholder="Date of birth">
+        </div>
+        <div class="form-group">
+            <input type="text" name="username" class="form-control"  placeholder="User Name">
+        </div>
+        <div class="form-group">
+            <input type="text" name="password" class="form-control"  placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label>ADD YOUR ID PROOF</label>
+            <input type="FILE" name="proof" class="form-control"  placeholder="Add your id proof">
+        </div>
+        <div class="form-group">
+            <input type="text" name="place" class="form-control"  placeholder="Enter your place">
+        </div>
+         <div class="form-group">
+            <input type="text" name="District" class="form-control"  placeholder="Enter your district">
+        </div>
+        <div class="form-group">
+            <div class="row">
+            <div class="col-xs-6">
+                   <select class="form-control" name="State">
+                <option>State</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Karnadaka">Karnadaka</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Raipur">Raipur</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Telengana">Telengana</option>
+                <option value="Goa">Goa</option>
+                <option value="Andra Predesh">Andra Predesh</option>
+                <option value="Kerala">Kerala</option>
+
+              </select>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+{#            <textarea class="form-control"  placeholder="Message" rows="4"></textarea>#}
+        </div>
+            <button class="btn btn-default" type="submit">Submit</button>
+    </form>
+</div>
+</div>
+            </div>
+{#            <a href="#information" class="arrow-nav scroll wowload fadeInDownBig"><i class="fa fa-angle-down"></i></a>#}
+        </div>
+    </div>
+</div>
+<!-- banner-->
+
+
+<!-- reservation-information -->
+
+<!-- reservation-information -->
+
+
+
+<!-- services -->
+
+<!-- services -->
+
+{%  endblock %}

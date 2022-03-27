@@ -1,0 +1,82 @@
+{% extends 'admin/admin_base.html' %}
+{% load static %}
+{% block content %}
+    {% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+
+
+<!-- banner -->
+<div class="banner">    	   
+    <img src="{% static 'assets/images/photos/banner.jpg' %}"  class="img-responsive" alt="slide">
+    <div class="welcome-message">
+        <div class="wrap-info">
+            <div class="information">
+{#                <h1  class="animated fadeInDown">Best hotel in Dubai</h1>#}
+{#                <p class="animated fadeInUp">Most luxurious hotel of asia with the royal treatments and excellent customer service.</p>                #}
+            </div>
+{#            <a href="#information" class="arrow-nav scroll wowload fadeInDownBig"><i class="fa fa-angle-down"></i></a>#}
+        </div>
+    </div>
+</div>
+<!-- banner-->
+
+
+<!-- reservation-information -->
+<div id="information" class="spacer reserve-info ">
+<div class="container">
+<div class="row">
+<div class="col-sm-7 col-md-8">
+   <table class="table table-bordered table-striped table-hover" style="background-color: #002633;width: 1000px;">
+
+                                 <th class="success" style="color: black;">User Name</th>
+                                 <th class="success" style="color: black;">Email</th>
+                                 <th class="success" style="color: black;">Address</th>
+                                 <th class="success" style="color: black;">Date Of Birth</th>
+                                 <th class="success" style="color: black;">Phone</th>
+
+                                 <th class="success" style="color: black;">Place</th>
+                                 <th class="success" style="color: black;">Id_proof</th>
+                                 <th class="success" style="color: black;">District</th>
+                                 <th class="success" style="color: black;">Nation</th>
+                                 <th class="success" style="color: black;">Approve</th>
+                                 <th class="success" style="color: black;">Reject</th>
+                                 {% for us in u %}
+
+                                <tr style="background-color:white;width: 700px;">
+                                    <td>{{ us.user.first_name}}</td>
+                                    <td>{{ us.user.email}}</td>
+                                    <td>{{ us.Address}}</td>
+                                    <td>{{ us.dob }}</td>
+                                    <td>{{ us.contact }}</td>
+                                    <td>{{ us.place }}</td>
+                                    <td><img style="max-width: 200px;max-height:140px;" src="{{ us.id_proof.url }}"></td>
+                                    <td>{{ us.district }}</td>
+                                    <td>{{ us.nation }}</td>
+
+
+                                    <td><button style="background-color:lightslategray"><a href="approve?id={{ us.user_id}}" class=" btn btn-success" style="color:black">Approve</a></button></td>
+                                    <td><button style="background-color:lightslategray"><a href="reject?id={{ us.user_id}}" class=" btn btn-danger" style="color:black">Reject</a></button></td>
+
+                                </tr>
+
+
+                              {% endfor %}
+                            </table>
+</div>
+
+</div>
+</div>
+</div>
+<!-- reservation-information -->
+
+
+
+<!-- services -->
+
+<!-- services -->
+
+{%  endblock %}

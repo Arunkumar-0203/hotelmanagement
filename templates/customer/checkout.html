@@ -1,0 +1,153 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div style="max-width: 700px;max-height:300px; padding-left: 300px;">
+
+    <div class="container" >
+      <form action="" method="post">
+          {% csrf_token %}
+
+        <div class="row" style="padding-left: 70px;">
+
+          <div style="max-width:600px;max-height:700px;">
+            <h3>Payment</h3>
+
+
+            <label for="cname">Name on Card</label>
+            <input type="text" id="cname" name="cardname" required="" placeholder="Enter Name">
+            <label for="ccnum">Credit card number</label>
+            <input type="text" id="ccnum" name="cardnumber" required="" placeholder="1111-2222-3333-4444">
+            <label for="expmonth">Exp Month</label>
+            <input type="text" id="expmonth" name="expmonth" required="" placeholder="">
+
+            <div class="row">
+              <div class="col-50">
+                <label for="expyear">Exp Year</label>
+                <input type="text" id="expyear" name="expyear" required="" placeholder="">
+              </div>
+              <div class="col-50">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" required=""  placeholder=" ">
+              </div>
+                <div class="col-50">
+                <label for="cvv">CVV</label>
+                <input type="hidden" value="{{ room }}" name="t" required=""  placeholder=" ">
+              </div>
+                <div class="col-50">
+                    {{ not }}<br>
+                    Total Rs:- {{ room }}
+{#                <label for="cvv">Total</label>#}
+{#                <input type="text" id="cvv" name="cvv" placeholder=" ">#}
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <label>
+
+        </label>
+
+        <center><button style="width: 200px" type="submit" class="btn btn-success">Proceed to buy </button></center>
+      </form>
+        <a href="t"><input style="max-width: 100px;background-color:lightslategrey" type="submit" value="HOME" class="btn"></a>
+    </div>
+  </div>
+
+
+
+</body>
+{#<script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js'></script>#}
+</html>

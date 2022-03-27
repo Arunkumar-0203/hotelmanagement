@@ -1,0 +1,86 @@
+{% extends 'customer/user_base.html' %}
+{% load static %}
+{% block content %}
+
+    {% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+
+
+<!-- banner -->
+<div class="banner">
+    <img src="{% static 'assets/images/photos/banner.jpg' %}"  class="img-responsive" alt="slide">
+    <div class="welcome-message">
+        <div class="wrap-info">
+            <div class="information">
+               <div class="col-sm-5 col-md-4">
+
+{#                   <u><h3> SELECTED FACILITiES</h3></u>#}
+                   <br>
+ <table class="table table-bordered table-striped table-hover" style="background-color: #002633;width: 300px;">
+{#                                 <th class="success" style="color: black;">Hotel Name</th>#}
+{#                                 <th class="success" style="color: black;">Room Type</th>#}
+                                 <th class="success" style="color: black;">Selected Fcailities</th>
+
+
+
+
+
+{#                                 <th class="success" style="color: black;">Cancel</th>#}
+{#                                 <th class="success" style="color: black;">Checkout</th>#}
+                                 {% for u in S %}
+
+
+
+
+                                <tr style="background-color:black;width: 700px;">
+                                    <td>
+{#                                        {% for us in S %}#}
+                                        {{ u }}
+{#                                            {% endfor %}#}
+                                    </td>
+{#                                    <td>{{ us.ROOM.roomtype.roomtype}}</td>#}
+{#                                    <td>{{ us.check_in_date}}</td>#}
+{#                                    <td>{{ us.check_in_time}}</td>#}
+{#                                    <td>{{ us.check_out_date }}</td>#}
+{#                                    <td>{{ us.check_out_time }}</td>#}
+{#                                    <td>{{ us.status }}</td>#}
+{#                                    <td><button style="background-color:lightslategray"><a href="rejects?id={{ us.Userr_id}}" class=" btn btn-danger" style="color:black">facility</a></button></td>#}
+{##}
+{##}
+{##}
+{##}
+{#                                    <td><button style="background-color:lightslategray"><a href="approve?id={{ us.user_id}}" class=" btn btn-success" style="color:black">Approve</a></button></td>#}
+{#                                    <td><button style="background-color:lightslategray"><a href="reject?id={{ us.id}}" class=" btn btn-danger" style="color:black">Cancel</a></button></td>#}
+{#                                <td><button style="background-color:lightslategray"><a href="checkout?id={{ us.Userr_id}}" class=" btn btn-danger" style="color:black">Checkout</a></button></td>#}
+
+                                </tr>
+
+
+                              {% endfor %}
+                            </table>
+
+</div>
+</div>
+            </div>
+{#            <a href="#information" class="arrow-nav scroll wowload fadeInDownBig"><i class="fa fa-angle-down"></i></a>#}
+        </div>
+    </div>
+</div>
+<!-- banner-->
+
+{##}
+{#<!-- reservation-information -->#}
+
+<!-- reservation-information -->
+
+
+
+<!-- services -->
+
+<!-- services -->
+
+{%  endblock %}

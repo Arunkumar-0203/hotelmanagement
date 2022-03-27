@@ -1,0 +1,100 @@
+{% extends 'admin/admin_base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+<!-- banner -->
+<div class="banner">
+    <img src="{% static 'assets/images/photos/banner.jpg' %}"  class="img-responsive" alt="slide">
+    <div class="welcome-message">
+        <div class="wrap-info">
+            <div class="information">
+               <div class="col-sm-5 col-md-4" >
+<h3>ADD ROOM DETAILS</h3>
+    <form  method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+{#            <label>Select Hotel</label>#}
+            <div class="row">
+            <div class="col-xs-6">
+                   <select class="form-control" name="type">
+                <option>Room Type</option>
+                       {% for J in r %}
+                <option value="{{ J.id }}">{{ J.roomtype }}</option>
+                       {% endfor %}
+
+              </select>
+            </div>
+
+
+        </div>
+        <br>
+        <div class="form-group">
+            <input type="number" name="numbers" class="form-control"  placeholder="Enter Total Number Of Rooms">
+        </div>
+{#        <div class="form-group">#}
+{#            <input type="file" name="img" class="form-control"  placeholder="">#}
+{#        </div>#}
+
+         <div class="form-group">
+            <input type="number" name="price" class="form-control"  placeholder="Enter Room Price"> </input>
+        </div>
+
+
+
+        <button class="btn btn-default">Submit</button>
+    </form>
+</div>
+</div>
+            </div>
+{#            <a href="#information" class="arrow-nav scroll wowload fadeInDownBig"><i class="fa fa-angle-down"></i></a>#}
+        </div>
+    </div>
+</div>
+<!-- banner-->
+
+
+<!-- reservation-information -->
+    <div id="information" class="spacer reserve-info ">
+<div class="container">
+<div class="row">
+<div class="col-sm-7 col-md-8">
+   <table class="table table-bordered table-striped table-hover" style="background-color: #002633;width: 1000px;">
+                                 <th class="success" style="color: black;">Hotel Name</th>
+                                 <th class="success" style="color: black;">Room Type</th>
+                                 <th class="success" style="color: black;">Number of rooms</th>
+                                 <th class="success" style="color: black;">Price</th>
+                                 <th class="success" style="color: black;">Reject</th>
+                                 {% for us in d %}
+
+                                <tr style="background-color:white;width: 700px;">
+                                    <td>{{ us.HOTEL.Name }}</td>
+                                    <td>{{ us.roomtype.roomtype }}</td>
+                                    <td>{{ us.total }}</td>
+
+                                    <td>{{ us.Price }}</td>
+{#                                    <td><button style="background-color:lightslategray"><a href="approve?id={{ us.user_id}}" class=" btn btn-success" style="color:black">Approve</a></button></td>#}
+                                    <td><button style="background-color:lightslategray"><a href="rejectt?id={{ us.id}}" class=" btn btn-danger" style="color:black">Reject</a></button></td>
+
+                                </tr>
+
+
+                              {% endfor %}
+                            </table>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- reservation-information -->
+
+
+
+<!-- services -->
+
+<!-- services -->
+
+{%  endblock %}

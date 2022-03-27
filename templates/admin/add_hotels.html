@@ -1,0 +1,95 @@
+{% extends 'admin/admin_base.html' %}
+{% load static %}
+{% block content %}
+    {% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+<!-- banner -->
+<div class="banner">    	   
+    <img src="{% static 'assets/images/photos/banner.jpg' %}"  class="img-responsive" alt="slide">
+    <div class="welcome-message">
+        <div class="wrap-info">
+            <div class="information">
+               <div class="col-sm-5 col-md-4">
+<h3>ADD HOTELS</h3>
+    <form  method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <input type="text" name="name" class="form-control"  placeholder="Enter Hotel Name">
+        </div>
+
+        <div class="form-group">
+            <input type="text" name="place" class="form-control"  placeholder="Enter Place">
+        </div>
+
+
+        <div class="form-group">
+            <label>ADD IMAGE</label>
+            <input type="FILE" name="imge" class="form-control"  placeholder="Add image">
+        </div>
+
+
+        <div class="form-group">
+{#            <textarea class="form-control"  placeholder="Message" rows="4"></textarea>#}
+        </div>
+            <button class="btn btn-default" type="submit">Submit</button>
+    </form>
+</div>
+</div>
+            </div>
+{#            <a href="#information" class="arrow-nav scroll wowload fadeInDownBig"><i class="fa fa-angle-down"></i></a>#}
+        </div>
+    </div>
+</div>
+<!-- banner-->
+
+
+<!-- reservation-information -->
+
+<!-- reservation-information -->
+
+
+
+<!-- services -->
+
+<div class="spacer services wowload fadeInUp">
+<div class="container">
+    <div class="row">
+        {% for i in h %}
+
+        <div class="col-sm-4">
+            <!-- RoomCarousel -->
+
+            <div id="RoomCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                <div class="item active"><img style="width: 400px;height: 200px;" src="{{ i.Image.url }}" class="img-responsive" alt="slide"></div>
+
+                </div>
+                <!-- Controls -->
+{#                <a class="left carousel-control" href="#RoomCarousel" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>#}
+{#                <a class="right carousel-control" href="#RoomCarousel" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>#}
+            </div>
+            <!-- RoomCarousel-->
+            <div class="caption">NAME:-{{ i.Name }}<a href="hoteldetails?id={{ i.id }}" class="pull-right">ADD DETAILS</a>
+            </div>
+{#            <div class="caption"><a href="hoteldetails?id={{ i.id }}" class="pull-right">VIEW DETAILS</a>#}
+{#            </div>#}
+           <div><a href="remove?id={{ i.id }}" class=" btn btn-danger" >REMOVE</a>
+            </div>
+
+
+        </div>
+         {% endfor %}
+
+    </div>
+
+</div>
+</div>
+
+<!-- services -->
+
+{%  endblock %}
